@@ -11,15 +11,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const logger = (store) => (next) => (action) => {
-    console.log("prev state", store.getState())
-    next(action)
-    console.log('New state', store.getState())
-}
+
 
 const store = createStore(
-    reducer, compose(applyMiddleware(thunk, logger),
-        window.__REDUX_DEVTOOLS_EXTENSION__ ? windown.__REDUX_DEVTOOLS_EXTENSION__() : f => f),
+    reducer,
+     compose(applyMiddleware(thunk, logger),
+        window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f),
 )
 
 

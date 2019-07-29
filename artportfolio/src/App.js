@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-// import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/register';
 import './App.css';
 
 class App extends Component {
-  // constructor() {
-  //   super();
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
 
-  // };
-
-render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
-  );
+        </header>
+      </div>
+    );
+  }
 }
-}
-export default App;
+export default withRouter (App);
