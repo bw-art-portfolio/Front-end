@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
+class App extends Component {
+  constructor() {
+    super();
+
+  };
+
+render() {
   return (
     <div className="App">
       <header className="App-header">
-       
+
       </header>
     </div>
   );
 }
-
+}
 export default App;

@@ -2,10 +2,18 @@ import react from 'react';
 import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
 class LoginForm extends Component {
-    state = {
-        name: '',
-        password: '',
+    constructor(props){
+        super(props){
+           this.state = {
+                name: '',
+                password: '',
+            };
+        }
+
+        
+
     }
+    
 
     render() {
         return (
