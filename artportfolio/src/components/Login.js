@@ -12,6 +12,7 @@ class Login extends React.Component {
             'password': '',
         };
     }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -23,43 +24,44 @@ class Login extends React.Component {
             .post(' https://artportfoliobw.herokuapp.com/login/', this.state)
             .then(res => {
                 localStorage.setItem(res.data.token);
-                this.props.history.push('/artist') // Dont think right endpoint
-            });
-            
+                this.props.history.push('/artists') // Dont think right endpoint
+            })
+            .catch(err => console.log(err))
+    };
 
-        this.render() {
-            return (
-                <Container className='login-form'>
-                    <Form onSubmit={this.handleSubmit}>
-                        <FormGroup>
-                            <Label for="email">Email</Label>
-                            <Input
-                                type="text"
-                                name="email"
-                                id="email"
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="password">Password</Label>
-                            <Input
-                                type="text"
-                                name="password"
-                                id="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                        <Button type='submit'>LOGIN</Button>
-                        <Link to='/register'></Link>
-                    </Form>
+    render() {
+        return (
+            <Container className='login-form'>
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup>
+                        <Label for="email">Email</Label>
+                        <Input
+                            type="text"
+                            name="email"
+                            id="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="password">Password</Label>
+                        <Input
+                            type="text"
+                            name="password"
+                            id="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                    <Button type='submit'>LOGIN</Button>
+                    <Link to='/register'></Link>
+                </Form>
 
-                </Container>
+            </Container>
 
-            )
-        }
+        )
     }
+}
 
 
-    export default Login;
+export default Login;

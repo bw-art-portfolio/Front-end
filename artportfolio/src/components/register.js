@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import axios from 'axios';
 
 class Register extends React.Component {
@@ -9,30 +10,31 @@ class Register extends React.Component {
             'fname': '',
             'email': '',
             'password': '',
-        }
-
-        handleChange = e => {
-            this.setState({ [e.target.name]: e.target.value })
         };
-    
-        handleSubmit = e => {
-            e.preventDefault();
-    
-            axios
-                .post(' https://artportfoliobw.herokuapp.com/signup/', this.state)
-                .then(res => {
-                    localStorage.setItem(res.data.token);
-                    this.props.history.push('/login') // Dont think right endpoint
-                })
-                .catch(err => console.log(err))
-    
+    }
+
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value })
     };
 
-    this.render() {
+    handleSubmit = e => {
+        e.preventDefault();
+
+        axios
+            .post(' https://artportfoliobw.herokuapp.com/signup/', this.state)
+            .then(res => {
+                localStorage.setItem(res.data.token);
+                this.props.history.push('/login')
+            })
+            .catch(err => console.log(err))
+
+    };
+
+    render() {
         return (
             <Container className='registration-form'>
                 <Form onSubmit={this.handleSubmit}>
-                <FormGroup>
+                    <FormGroup>
                         <Label for="fname">First Name</Label>
                         <Input
                             type="text"

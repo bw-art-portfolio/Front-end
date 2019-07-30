@@ -15,16 +15,18 @@ export const GET_ARTIST_FAILED = 'GET_ARTIST_FAILED';
 
 
 
-export const getArtists = () => {
-    axios.get('https://artportfoliobw.herokuapp.com/');
-    return dispatch => {
-        dispatch({ type: GET_ARTIST_START })
-            .then(res => {
-                dispatch({ type: GET_ARTIST_SUCCESS, payload: res.data })
-            })
-            .catch(err => {
-                dispatch({ type: GET_ARTIST_FAILED, payload: err })
-            });
+export function getArtists() {
+    return (dispatch) => {
+        dispatch({ type: GET_ARTIST_START }); 
+    axios
+        .get('https://artportfoliobw.herokuapp.com/')
+        .then((res) => {
+            console.log('res', res)
+            dispatch({ type: GET_ARTIST_SUCCESS, payload: res.data })
+        })
+        .catch((err) => {
+            dispatch({ type: GET_ARTIST_FAILED, payload: err })
+        })
+    }
+}
 
-    };
-};
