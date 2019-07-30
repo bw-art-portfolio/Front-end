@@ -15,6 +15,8 @@ class Register extends React.Component {
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
+        // console.log ('handlechange', e.target.name)
+        // console.log("value", e.target.value)
     };
 
     handleSubmit = e => {
@@ -23,8 +25,8 @@ class Register extends React.Component {
         axios
             .post(' https://artportfoliobw.herokuapp.com/signup/', this.state)
             .then(res => {
-                localStorage.setItem(res.data.token);
-                this.props.history.push('/login')
+                localStorage.setItem('token', res.data.token);
+                this.props.history.push('/') 
             })
             .catch(err => console.log(err))
 
@@ -32,13 +34,14 @@ class Register extends React.Component {
 
     render() {
         return (
-            <Container className='registration-form'>
-                <Form onSubmit={this.handleSubmit}>
+            <Container className='registration-container'>
+                <h1>Registration</h1>
+                <Form className='registration-form' onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="fname">First Name</Label>
                         <Input
                             type="text"
-                            name="Name"
+                            name="fname"
                             id="fname"
                             value={this.state.fname}
                             onChange={this.handleChange}

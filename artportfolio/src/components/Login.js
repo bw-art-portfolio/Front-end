@@ -23,16 +23,18 @@ class Login extends React.Component {
         axios
             .post(' https://artportfoliobw.herokuapp.com/login/', this.state)
             .then(res => {
-                localStorage.setItem(res.data.token);
-                this.props.history.push('/artists') // Dont think right endpoint
+                localStorage.setItem('token', res.data.token);
+                this.props.history.push('/') // push to home
             })
             .catch(err => console.log(err))
     };
 
     render() {
+        console.log("login", localStorage.token)
         return (
-            <Container className='login-form'>
-                <Form onSubmit={this.handleSubmit}>
+            <Container className='login-container'>
+                <h1>Login</h1>
+                <Form className='login-form' onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input
