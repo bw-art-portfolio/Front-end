@@ -1,24 +1,20 @@
-
 import React from 'react';
-import Home from '../containers/Home';
+import ArtistProfile from '../containers/ArtistProfile';
 
+//needs to pull specific to one artist, images. 
 
-
-const ArtistList = props => {
+const Artist = props => {
     console.log('artistslist', props)
     return (
         <div>
             { props.artists.map((artist) => (
                 <div>
-                    <Home
-                        firstName={artist.fname}
-                        lastName={artist.lname}
-                        avatar={artist.avatar}
+                    <ArtistProfile
+                        desc={artist.description}
                         image={artist.src}
                         alt={artist.alt}
                         likes={artist.likes}
                         key={artist.id}
-                        
                     />
               </div>
 
@@ -27,8 +23,6 @@ const ArtistList = props => {
     )
 }
 
-export default ArtistList;
-
-
+export default Artist;
 
 
