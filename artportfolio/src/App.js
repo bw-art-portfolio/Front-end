@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super ();
     this.state = {
-      artsist: []
+      artists: []
     };
   }
 
@@ -18,6 +18,7 @@ class App extends Component {
       axios
           .get('https://artportfoliobw.herokuapp.com/')
           .then(res => {
+            console.log(res.data);
             
               this.setState({ artists: res.data })
           })
@@ -28,14 +29,15 @@ class App extends Component {
   
 
   render() {
+    console.log('app', this.state)
     return (
       <div className="App">
         <header className="App-header">
           <h1>Hello</h1>
-          <Route exact path='/' component={ArtistList} />
+          {/* <Route exact path='/' component={ArtistList} /> */}
           <Route  path='/login' component={Login} />
           <Route  path='/register' component={Register} />
-         
+          <ArtistList artists={this.state.artists} />
         </header>
       </div>
     );
