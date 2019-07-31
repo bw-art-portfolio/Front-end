@@ -10,13 +10,14 @@ const Home = props => {
             <Container>
                 <Card className='artist-card'>
                     <CardHeader>
+                        <img src={props.avatar} alt={props.alt} />
                         <h1>{props.firstName}</h1>
                         <h2>{props.lastName}</h2>
 
 
                         {/* {props.avatar} */}
                         <CardBody>
-                           <img src={props.image}  />
+                           <img src={props.image} alt={props.alt}/>
                            <p>{props.likes}</p>
 
 

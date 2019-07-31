@@ -14,7 +14,7 @@ const ArtistList = props => {
                         firstName={artist.fname}
                         lastName={artist.lname}
                         avatar={artist.avatar}
-                        Image={artist.src}
+                        image={artist.src}
                         alt={artist.alt}
                         key={artist.id}
                         likes={artist.likes}
