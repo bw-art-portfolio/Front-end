@@ -10,9 +10,9 @@ export default class EditDescription extends Component {
         }
     }
 
-    componentWillMount = () => {
-        localStorage.token ? null : this.props.history.push('/login');
-    }
+    // componentWillMount = () => {
+    //     localStorage.token ? null : this.props.history.push('/login');
+    // }
 
     componentDidMount() {
         const token = localStorage.getItem('token');

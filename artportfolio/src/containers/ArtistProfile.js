@@ -13,7 +13,7 @@ const ArtistProfile = props => {
                         <p>{props.desc}</p>
                         <CardBody>
                            <img src={props.image} alt={props.alt}/>
-                           <p>{props.likes}</p>
+                           <p>{props.likes} LIKES</p>
                            
 
 
