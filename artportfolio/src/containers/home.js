@@ -4,7 +4,7 @@ import { Container, Card, CardBody, CardHeader, Row, Col} from 'reactstrap';
 
 
 const Home = props => {
-    console.log("home", props)
+    // console.log("home", props)
     return (
         <div className="home-page">
             <Container>
@@ -13,9 +13,8 @@ const Home = props => {
                         <img src={props.avatar} alt={props.alt} />
                 <span>{props.firstName} {props.lastName}</span>
                         <CardBody>
-                           <img src={props.image} alt={props.alt}/>
-                           <p>{props.likes}</p>
-                           <p>{props.desc}</p>
+                           <img src={props.image} alt={props.alt} />
+                           
 
 
                         </CardBody>

@@ -5,7 +5,7 @@ import Home from '../containers/Home';
 
 
 const ArtistList = props => {
-    console.log('artistslist', props)
+    // console.log('artistslist', props)
     return (
         <div>
             { props.artists.map((artist) => (
@@ -28,7 +28,6 @@ const ArtistList = props => {
 }
 
 export default ArtistList;
-
 
 
 

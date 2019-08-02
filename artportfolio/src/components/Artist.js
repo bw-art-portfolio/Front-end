@@ -4,7 +4,8 @@ import ArtistProfile from '../containers/ArtistProfile';
 //needs to pull specific to one artist, images. 
 
 const Artist = props => {
-    console.log('artistslist', props)
+    // console.log('artistslist', props)
+    
     return (
         <div>
             { props.artists.map((artist) => (
@@ -14,7 +15,7 @@ const Artist = props => {
                         image={artist.src}
                         alt={artist.alt}
                         likes={artist.likes}
-                        key={artist.id}
+                        photoId={artist.photos}
                     />
               </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import axios from 'axios';
@@ -32,7 +33,10 @@ class Register extends React.Component {
 
     };
 
+
+
     render() {
+        // console.log("register", localStorage.token)
         return (
             <Container className='registration-container'>
                 <h1>Registration</h1>
@@ -68,7 +72,7 @@ class Register extends React.Component {
                         />
                     </FormGroup>
                     <Button type='submit'>Register</Button>
-                    <Link to='/login'></Link>
+                    <Link to='/artist'></Link>
                 </Form>
 
             </Container>
@@ -77,4 +81,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);
