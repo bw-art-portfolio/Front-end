@@ -49,7 +49,7 @@ export default class EditDescription extends Component {
 
 
         axios
-        .put(`https://artportfoliobw.herokuapp.com/${editedPhotoID}` , {description: this.state.description} 
+        .put(`https://artportfoliobw.herokuapp.com/` , {description: this.state.description} 
          , requestOptions
         )
         .then (() => this.props.history.push('/artist'))// may change endpoint, dont think this one is right. 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import { Nav, NavItem, Container } from 'reactstrap';
 import Login from './components/Login';
 import Register from './components/register';
 import ArtistList from './components/ArtistList';
@@ -36,26 +37,36 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <nav>
-            <NavLink exact activeClassName='active' to="/">Home</NavLink>
-            <NavLink exact activeClassName='active' to="/login">Login</NavLink>
-            <NavLink exact activeClassName='active' to="/register">Register</NavLink>
-            <NavLink exact activeClassName='active' to="/artist">Artist Page</NavLink>
+          <Container>
+            <Nav className="nav-cont">
+              <NavItem>
+                <NavLink exact activeClassName='activeNavButton' to="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink exact activeClassName='activeNavButton' to="/artist">Artist Page</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink exact activeClassName='activeNavButton' to="/login">Login</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink exact activeClassName='activeNavButton' to="/register">Register</NavLink>
+              </NavItem>
+            </Nav>
+          </Container>
 
-          </nav>
           <section>
-            <Route exact path='/' 
+            <Route exact path='/'
               render={props => (
-              <ArtistList
-              {...props} 
-              artists={this.state.artists} />)}/>
+                <ArtistList
+                  {...props}
+                  artists={this.state.artists} />)} />
 
-            <Route path='/artist' 
+            <Route path='/artist'
               render={props => (
-              <Artist {...props}
-              artists={this.state.artists} />)}/>
+                <Artist {...props}
+                  artists={this.state.artists} />)} />
 
-              <Route path='/edit/:id' component={EditDescription} />
+            <Route path='/edit/:id' component={EditDescription} />
 
             < Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
