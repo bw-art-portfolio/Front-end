@@ -1,8 +1,9 @@
 import React, {Component } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
-export default class EditDescription extends Component {
+ class EditDescription extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,11 +48,15 @@ export default class EditDescription extends Component {
             }
         }
 
-
+        //editedPhotoId is a placeholder to avoid errors
         axios
+
         .put(`https://artportfoliobw.herokuapp.com/` , {description: this.state.description} 
          , requestOptions
         )
+
+       
+
         .then (() => this.props.history.push('/artist'))// may change endpoint, dont think this one is right. 
         .catch(err => this.props.history.push('/login'))
 
@@ -83,4 +88,6 @@ export default class EditDescription extends Component {
         )
     }
 }
+
+export default withRouter(EditDescription);
 
