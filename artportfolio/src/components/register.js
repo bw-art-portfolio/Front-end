@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import axios from 'axios';
@@ -80,4 +81,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);
