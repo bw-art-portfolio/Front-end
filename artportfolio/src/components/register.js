@@ -32,7 +32,10 @@ class Register extends React.Component {
 
     };
 
+
+
     render() {
+        // console.log("register", localStorage.token)
         return (
             <Container className='registration-container'>
                 <h1>Registration</h1>
@@ -68,7 +71,7 @@ class Register extends React.Component {
                         />
                     </FormGroup>
                     <Button type='submit'>Register</Button>
-                    <Link to='/login'></Link>
+                    <Link to='/artist'></Link>
                 </Form>
 
             </Container>

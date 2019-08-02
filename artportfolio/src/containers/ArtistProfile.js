@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Card, CardBody, CardHeader, Row, Col} from 'reactstrap';
+// import withRouter from 'react-router-dom';
+import { Container, Card, CardBody, CardHeader, Row, Col, Button} from 'reactstrap';
+import EditDescription from '../components/EditDescription';
 
 
 
@@ -18,6 +20,7 @@ const ArtistProfile = props => {
 
 
                         </CardBody>
+                        <Button onClick={ EditDescription }>Edit description</Button>
                     </CardHeader>
                 </Card>
             </Container>
@@ -25,4 +28,4 @@ const ArtistProfile = props => {
     )
 }
 
-export default ArtistProfile;
+export default  ArtistProfile;

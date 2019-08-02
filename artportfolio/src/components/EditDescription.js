@@ -12,7 +12,9 @@ export default class EditDescription extends Component {
 
     // componentWillMount = () => {
     //     localStorage.token ? null : this.props.history.push('/login');
+    
     // }
+
 
     componentDidMount() {
         const token = localStorage.getItem('token');
@@ -20,17 +22,19 @@ export default class EditDescription extends Component {
             headers: {
                 Authorization: token,
                 
-
             }
         }
+    
 
         axios
-            .get(`${"https://artportfoliobw.herokuapp.com/:photoId"}` , requestOptions)
+            .get(`https://artportfoliobw.herokuapp.com/`, requestOptions)
             .then(res => this.setState({
                 description: res.data.description
             }))
             .catch(err => this.props.history.push('/login'))
     }
+
+
 
     handleSubmit = () => {
         const token = localStorage.getItem('token');
@@ -38,13 +42,17 @@ export default class EditDescription extends Component {
             headers: {
                 Authorization: token,
                 
+                
 
             }
         }
 
+
         axios
-        .put(`${"https://artportfoliobw.herokuapp.com/:photoId"}` , {description: this.state.description} , requestOptions)
-        .then (() => this.props.history.push('/'))// may change endpoint, dont think this one is right. 
+        .put(`https://artportfoliobw.herokuapp.com/${editedPhotoID}` , {description: this.state.description} 
+         , requestOptions
+        )
+        .then (() => this.props.history.push('/artist'))// may change endpoint, dont think this one is right. 
         .catch(err => this.props.history.push('/login'))
 
             
@@ -52,9 +60,12 @@ export default class EditDescription extends Component {
 
     handleChange = e => {
         this.setState({ [e.target.name] : e.target.value })
+        // console.log ('handlechange', e.target.name)
+        // console.log("value", e.target.value)
     }
 
     render() {
+        console.log('description', this.state)
         return (
             <div>
                 <Container>
@@ -64,7 +75,7 @@ export default class EditDescription extends Component {
                        type="text"
                        value={this.state.description}
                        onChange={(e) => this.handleChange(e)} />
-                       <Button type="submit" onClick={() => this.handleSubmit (this.props.match.params.photoId)}></Button>
+                       <Button type="submit" onClick={() => this.handleSubmit(this.props.match.params.photoId)}>Edit Description</Button>
                    </Form>
                 </Container>
 

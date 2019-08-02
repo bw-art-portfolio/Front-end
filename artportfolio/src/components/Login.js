@@ -23,14 +23,19 @@ class Login extends React.Component {
         axios
             .post(' https://artportfoliobw.herokuapp.com/login/', this.state)
             .then(res => {
+                console.log('login res', res)
                 localStorage.setItem('token', res.data.token);
-                this.props.history.push('/') // push to home
+                localStorage.getItem('artistsPhotos', res.data.photos);
+                
+                this.props.history.push('/artist/:artistsId') // push to home
             })
             .catch(err => console.log(err))
     };
 
+
     render() {
-        console.log("login", localStorage.token)
+        // console.log("login", localStorage.token)
+        // console.log('loginPhoto', artistsPhotos)
         return (
             <Container className='login-container'>
                 <h1>Login</h1>

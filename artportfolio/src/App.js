@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       artists: [],
+      currentArtist: null,
     };
   }
 
@@ -20,8 +21,7 @@ class App extends Component {
     axios
       .get('https://artportfoliobw.herokuapp.com/')
       .then(res => {
-        console.log(res.data.slice(0, 30));
-
+        // console.log(res.data.slice(0, 30));
         // Grabbing first 30 artists from array
         this.setState({ artists: res.data.slice(0, 30) })
       })
@@ -32,7 +32,7 @@ class App extends Component {
 
 
   render() {
-    console.log('app', this.state)
+    // console.log('app', this.state)
     return (
       <div className="App">
         <header className="App-header">
@@ -54,6 +54,8 @@ class App extends Component {
               render={props => (
               <Artist {...props}
               artists={this.state.artists} />)}/>
+
+              <Route path='/edit/:id' component={EditDescription} />
 
             < Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
