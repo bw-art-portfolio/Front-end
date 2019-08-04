@@ -50,9 +50,11 @@ import { Container, Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
         //editedPhotoId is a placeholder to avoid errors
         axios
-        // .put(`https://artportfoliobw.herokuapp.com/${editedPhotoID}` , {description: this.state.description} 
-        //  , requestOptions
-        // )
+
+        .put(`https://artportfoliobw.herokuapp.com/` , {description: this.state.description} 
+         , requestOptions
+        )
+
         .then (() => this.props.history.push('/artist'))// may change endpoint, dont think this one is right. 
         .catch(err => this.props.history.push('/login'))
 
