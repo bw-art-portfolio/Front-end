@@ -25,7 +25,7 @@ class Login extends React.Component {
             .then(res => {
                 console.log('login res', res)
                 localStorage.setItem('token', res.data.token);
-                localStorage.getItem('artistsPhotos', res.data.photos);
+                localStorage.setItem('artistsPhotos', res.data.photos);
                 
                 this.props.history.push('/artist/:artistsId') // push to home
             })
@@ -34,8 +34,7 @@ class Login extends React.Component {
 
 
     render() {
-        // console.log("login", localStorage.token)
-        // console.log('loginPhoto', artistsPhotos)
+        
         return (
             <Container className='login-container'>
                 <h1>Login</h1>
